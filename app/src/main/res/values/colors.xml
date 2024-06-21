@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="biru">#0277BD</color>
+    <color name="gradien_biru">#001623</color>
+    <color name="dasar">#F2F2F2</color>
+    <color name="textcolor1">#001623</color>
+    <color name="textcolor2">#383838</color>
+    <color name="abu_abu">#818689</color>
+    <color name="colorPrimary">#0277BD</color>
+    <color name="colorPrimaryDark">#01579B</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="circleColor">#0277BD</color>
+    <color name="textColor">#000000</color>
+</resources>
