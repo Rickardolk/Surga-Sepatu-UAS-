@@ -35,12 +35,13 @@
     <Button
         android:id="@+id/buttonlogin"
         android:layout_width="311dp"
-        android:layout_height="51dp"
+        android:layout_height="48dp"
         android:background="@drawable/outline_button"
         android:text="Login"
         android:textColor="@color/textColor"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -48,13 +49,14 @@
     <Button
         android:id="@+id/buttonregister"
         android:layout_width="311dp"
-        android:layout_height="51dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/filled_button"
         android:text="Register"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonlogin" />

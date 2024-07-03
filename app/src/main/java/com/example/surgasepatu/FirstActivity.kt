@@ -28,6 +28,7 @@ class FirstActivity : AppCompatActivity() {
 
         }
 
+
         val textView: TextView = findViewById(R.id.textView)
         val htmlText = "<div style='text-align:center;'>Find Your Dream<br>Shoes With Us!</div>"
         textView.text = Html.fromHtml(htmlText)

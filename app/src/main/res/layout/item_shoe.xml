@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingEnd="16dp"
+    android:layout_marginEnd="@dimen/_16sdp"
+    app:layout_goneMarginEnd="16dp"
+    app:cardCornerRadius="@dimen/_16sdp"
+    android:elevation="@dimen/_16sdp"
+    android:id="@+id/cardview">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/_180sdp"
+            android:layout_height="@dimen/_290sdp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/cardview_background"/>
+
+        <RelativeLayout
+            android:layout_width="@dimen/_28sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:background="@drawable/price_background"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignTop="@+id/imageView"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_12sdp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/keranjang"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignStart="@+id/imageView"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:paddingStart="16dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="12dp"
+            android:background="@drawable/price_background"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textColor="@color/dasar"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/_2sdp"/>
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 0,00"
+                android:layout_below="@+id/tvTitle"
+                android:textColor="@color/dasar"
+                android:textSize="@dimen/_8ssp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:drawableStart="@drawable/price"
+                android:drawablePadding="@dimen/_4sdp"/>
+
+            <TextView
+                android:id="@+id/tvRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitle"
+                android:layout_marginLeft="@dimen/_40sdp"
+                android:layout_toRightOf="@+id/tvPrice"
+                android:text="4.5"
+                android:textColor="@color/dasar"
+                android:textSize="@dimen/_8ssp"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:drawableStart="@drawable/star"
+                android:drawablePadding="@dimen/_4sdp"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

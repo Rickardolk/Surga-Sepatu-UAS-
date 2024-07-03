@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="40dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -22,14 +22,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Welcome!"
-            android:textSize="26sp"
-            android:textStyle="bold"/>
+            android:textSize="@dimen/_18ssp"
+            android:textStyle="bold"
+            android:textColor="@color/textcolor2"/>
 
         <TextView
             android:id="@+id/tvcountinuelogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login to countinue" />
+            android:text="Login to countinue"
+            android:textSize="@dimen/_11ssp"/>
 
     </LinearLayout>
 
@@ -39,8 +41,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Login"
-        android:textSize="26sp"
+        android:textSize="@dimen/_18ssp"
         android:textStyle="bold"
+        android:textColor="@color/textcolor2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +63,95 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Username"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/textcolor2"
             android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etusername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your username"
+            android:textSize="@dimen/_12ssp"
+            android:layout_below="@+id/tvusername"
+            android:minHeight="48dp"
+            android:drawableStart="@drawable/person"
+            android:drawablePadding="8dp"/>
+
+        <TextView
+            android:id="@+id/tvpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:layout_below="@+id/etusername"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/textcolor2"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your password"
+            android:textSize="@dimen/_12ssp"
+            android:layout_below="@+id/tvpassword"
+            android:minHeight="48dp"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_password"
+            android:drawableEnd="@drawable/ic_hint"
+            android:drawablePadding="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tvforgotpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot password?"
+            android:layout_below="@+id/etpassword"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/biru"
+            android:textSize="@dimen/_11ssp"/>
+
+        <Button
+            android:id="@+id/buttonlogin2"
+            android:layout_width="311dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/tvforgotpassword"
+            android:layout_marginTop="26dp"
+            android:text="Login"
+            android:textSize="@dimen/_16ssp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:background="@drawable/filled_button"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/buttonlogin2"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvorlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Or"
+                android:textColor="@color/textcolor2"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvsigninlogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/biru"
+                android:layout_marginLeft="5dp"
+                />
+
+        </LinearLayout>
 
 
     </RelativeLayout>

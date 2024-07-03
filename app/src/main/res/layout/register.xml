@@ -5,6 +5,181 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dasar"
+    android:padding="40dp"
     tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvwelcomelogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome!"
+            android:textSize="@dimen/_18ssp"
+            android:textColor="@color/textcolor2"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvcountinuelogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_11ssp"
+            android:text="Register to create an account" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tvlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:textSize="@dimen/_18ssp"
+        android:textColor="@color/textcolor2"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.274"/>
+
+    <RelativeLayout
+        android:layout_width="288dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvlogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="42dp">
+
+        <TextView
+            android:id="@+id/tvusernameregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/textcolor2"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etusernameregister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your username"
+            android:layout_below="@+id/tvusernameregister"
+            android:minHeight="48dp"
+            android:textSize="@dimen/_12ssp"
+            android:drawableStart="@drawable/person"
+            android:drawablePadding="8dp"/>
+
+
+
+        <TextView
+            android:id="@+id/tvemailregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_below="@+id/etusernameregister"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/textcolor2"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etemailgerister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your email"
+            android:layout_below="@+id/tvemailregister"
+            android:minHeight="48dp"
+            android:textSize="@dimen/_12ssp"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="8dp"
+            />
+
+        <TextView
+            android:id="@+id/tvpasswordregister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:layout_below="@+id/etemailgerister"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/textcolor2"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etpasswordregister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type your password"
+            android:layout_below="@+id/tvpasswordregister"
+            android:minHeight="48dp"
+            android:textSize="@dimen/_12ssp"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_password"
+            android:drawableEnd="@drawable/ic_hint"
+            android:drawablePadding="8dp"
+            />
+
+
+        <Button
+            android:id="@+id/buttonregister2"
+            android:layout_width="311dp"
+            android:layout_height="48dp"
+            android:layout_below="@+id/etpasswordregister"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/filled_button"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_16ssp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/buttonregister2"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvorgerister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Or"
+                android:textSize="@dimen/_12ssp" />
+
+            <TextView
+                android:id="@+id/tvloginregister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/biru"
+                android:layout_marginLeft="5dp"
+                />
+
+            <TextView
+                android:id="@+id/tvalreadyregister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="if you already have an account"
+                android:textSize="@dimen/_12ssp"
+                android:layout_marginLeft="5dp"
+                />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

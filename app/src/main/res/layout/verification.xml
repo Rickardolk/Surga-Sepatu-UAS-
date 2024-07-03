@@ -5,6 +5,183 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="40dp"
+    android:background="@color/dasar"
     tools:context=".VerificationActivity">
 
+    <TextView
+        android:id="@+id/tvverification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verification"
+        android:textColor="@color/biru"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="322dp"/>
+
+    <LinearLayout
+        android:id="@+id/llverification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:weightSum="6"
+        app:layout_constraintTop_toBottomOf="@+id/tvverification">
+
+        <EditText
+            android:id="@+id/etCode1"
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingBottom="8dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/etCode2"
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingBottom="8dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/etCode3"
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingBottom="8dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/etCode4"
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingBottom="8dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/etCode5"
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:hint=""
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingBottom="8dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <EditText
+            android:id="@+id/etCode6"
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:hint=""
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="1"
+            android:paddingBottom="8dp"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tventercodeverification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the code send via your email"
+        android:textColor="@color/textcolor2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/llverification"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/buttonverification"
+        android:layout_width="311dp"
+        android:layout_height="48dp"
+        android:text="Verification"
+        android:textSize="20sp"
+        android:background="@drawable/filled_button"
+        android:layout_marginTop="120dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/tventercodeverification"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonverification">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Haven't got the code yet?"
+            android:textColor="@color/textcolor2"/>
+
+        <TextView
+            android:id="@+id/tvresending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resending"
+            android:textColor="@color/biru"
+            android:layout_marginLeft="4dp"/>
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
