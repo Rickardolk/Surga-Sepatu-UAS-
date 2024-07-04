@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bn_Home"
+        android:icon="@drawable/bnhome"
+        android:title="" />
+    <item
+        android:id="@+id/bn_Keranjang"
+        android:title=""
+        android:icon="@drawable/bnkeranjang"/>
+    <item
+        android:id="@+id/bn_History"
+        android:title=""
+        android:icon="@drawable/bnhistory"/>
+    <item
+        android:id="@+id/bn_Profile"
+        android:title=""
+        android:icon="@drawable/bnprofile"/>
+</menu>
