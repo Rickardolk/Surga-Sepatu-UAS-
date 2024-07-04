@@ -13,8 +13,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SurgaSepatu"
-        tools:targetApi="31"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
         <activity
             android:name=".VerificationActivity"
             android:exported="false" />
@@ -28,7 +32,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name="Home.HomeActivity"
+            android:name="Menu.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".StartActivity"
@@ -42,6 +46,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
 
 </manifest>

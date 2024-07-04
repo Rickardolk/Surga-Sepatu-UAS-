@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/dasar"
     android:paddingTop="60dp"
-    tools:context="Home.HomeActivity">
+    tools:context="Menu.HomeActivity">
 
 
     <RelativeLayout
@@ -191,7 +191,5 @@
             android:layout_marginEnd="@dimen/_16sdp"
             android:orientation="horizontal" />
     </HorizontalScrollView>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

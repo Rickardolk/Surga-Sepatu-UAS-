@@ -1,7 +1,6 @@
 package com.example.surgasepatu
 
 
-import Home.HomeActivity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +14,12 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import okhttp3.*
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.FormBody
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import org.json.JSONObject
 import java.io.IOException
 
@@ -118,7 +122,7 @@ class LoginActivity : AppCompatActivity() {
                 runOnUiThread {
                     Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
                     if (status == "success") {
-                        val intent = Intent(this@LoginActivity, HomeActivity::class.java)
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
