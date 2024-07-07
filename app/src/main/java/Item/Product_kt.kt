@@ -1,6 +1,5 @@
-package com.example.surgasepatu.Item
+package Item
 
-import retrofit2.http.Url
 
 data class Product_kt(
     val image: String,

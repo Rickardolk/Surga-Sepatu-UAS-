@@ -16,7 +16,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ListProduct"
+            android:name="Item.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name="Item.DetailProductActivity"
+            android:exported="false" />
+        <activity
+            android:name="Item.ListProduct"
             android:exported="false" />
         <activity
             android:name=".ItemlistActivity"

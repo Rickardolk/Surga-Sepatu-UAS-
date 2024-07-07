@@ -6,8 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/button_background"
     android:padding="@dimen/_10sdp"
-    android:elevation="@dimen/_4sdp"
-    android:layout_marginBottom="@dimen/_20sdp">
+    android:elevation="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_16sdp">
 
     <TextView
         android:id="@+id/product_brand"
@@ -17,10 +17,11 @@
         android:drawableStart="@drawable/market"
         android:drawablePadding="@dimen/_4sdp"
         android:textStyle="bold"
-        android:textSize="@dimen/_14ssp"
+        android:textSize="@dimen/_12ssp"
         android:textColor="@color/textcolor2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
     
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl"
@@ -45,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4.6"
-            android:textColor="@color/textcolor2"
+            android:textColor="@color/biru"
             android:drawableStart="@drawable/star_black"
             android:drawablePadding="@dimen/_4sdp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +63,7 @@
         android:text="Product name"
         android:textColor="@color/textcolor2"
         android:textStyle="bold"
-        android:textSize="@dimen/_14ssp"
+        android:textSize="@dimen/_12ssp"
         app:layout_constraintTop_toBottomOf="@+id/product_brand"
         app:layout_constraintStart_toEndOf="@+id/cl"
         android:layout_marginStart="@dimen/_12sdp"/>
@@ -117,7 +118,7 @@
         android:text="Pre - Order"
         app:layout_constraintStart_toEndOf="@+id/product_size"
         app:layout_constraintTop_toBottomOf="@+id/product_name"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:textSize="@dimen/_8ssp"
         android:layout_marginStart="@dimen/_8sdp"
         android:textColor="@color/textcolor2"/>
@@ -129,7 +130,7 @@
         android:background="@drawable/outline_button"
         app:layout_constraintStart_toEndOf="@+id/product_old_price"
         app:layout_constraintTop_toBottomOf="@id/product_status"
-        android:layout_marginTop="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginStart="@dimen/_8sdp"
         android:padding="@dimen/_4sdp">
 
@@ -137,6 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="10%"
+            android:textSize="@dimen/_8sdp"
             android:textColor="@color/textcolor2"/>
 
     </LinearLayout>

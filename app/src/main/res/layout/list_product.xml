@@ -34,6 +34,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <SearchView
+                android:id="@+id/searchview_listproduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:iconifiedByDefault="false"
@@ -109,16 +110,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/hz"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_100sdp"
         android:layout_marginRight="@dimen/_16sdp"
-        android:layout_marginTop="@dimen/_16sdp"
-        tools:listitem="@layout/item_product"/>
-
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hz"
+        tools:listitem="@layout/item_product" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
