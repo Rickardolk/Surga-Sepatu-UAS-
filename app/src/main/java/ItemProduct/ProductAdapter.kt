@@ -1,4 +1,4 @@
-package Item
+package ItemProduct
 
 import android.content.Intent
 import android.view.LayoutInflater

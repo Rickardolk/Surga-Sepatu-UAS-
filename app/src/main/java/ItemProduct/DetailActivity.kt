@@ -1,12 +1,15 @@
-package Item
+package ItemProduct
 
+import CheckOut.CartItem
+import CheckOut.CartRepository
+import CheckOut.CheckOutActivity
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.surgasepatu.R
 
@@ -24,6 +27,8 @@ class DetailActivity : AppCompatActivity() {
         val oldPriceTextView: TextView = findViewById(R.id.product_old_price)
         val newPriceTextView: TextView = findViewById(R.id.product_new_price)
         val ratingTextView: TextView = findViewById(R.id.product_rating)
+        val btnAddToCart: Button = findViewById(R.id.btn_add_to_cart)
+        val btnCheckout: Button = findViewById(R.id.btn_checkout)
 
         val image = intent.getStringExtra("image")
         val brand = intent.getStringExtra("brand")
@@ -42,5 +47,16 @@ class DetailActivity : AppCompatActivity() {
         oldPriceTextView.text = oldPrice
         newPriceTextView.text = newPrice
         ratingTextView.text = rating
+
+        btnAddToCart.setOnClickListener {
+            val cartItem = CartItem(image, brand, name, size, status, oldPrice, newPrice, rating)
+            CartRepository.addItem(cartItem)
+            finish()
+        }
+
+        btnCheckout.setOnClickListener {
+            val intent = Intent(this, CheckOutActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
