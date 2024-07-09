@@ -93,7 +93,7 @@ class CartFragment : Fragment() {
     private fun showDeleteConfirmationDialog() {
         AlertDialog.Builder(context)
             .setTitle("Konfirmasi Hapus")
-            .setMessage("Apakah Anda yakin akan menghapus item ini?")
+            .setMessage("Apakah Anda yakin akan menghapus semua item?")
             .setPositiveButton("Ya") { _, _ ->
                 CartRepository.clearCart()
                 updateCartView()

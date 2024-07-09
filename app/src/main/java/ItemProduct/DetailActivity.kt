@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.surgasepatu.R
 
 class DetailActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -58,5 +59,6 @@ class DetailActivity : AppCompatActivity() {
             val intent = Intent(this, CheckOutActivity::class.java)
             startActivity(intent)
         }
+
     }
 }
