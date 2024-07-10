@@ -60,6 +60,9 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")
     implementation ("org.json:json:20210307")
     implementation ("com.google.android.material:material:1.4.0")
+    implementation ("com.afollestad.material-dialogs:core:3.3.0")
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+    implementation ("androidx.core:core-ktx:1.6.0")
 
 
 

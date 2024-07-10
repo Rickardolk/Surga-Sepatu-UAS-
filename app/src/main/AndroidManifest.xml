@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
 
     <application
         android:allowBackup="true"
@@ -16,13 +18,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name="CheckOut.OrderActivity"
+            android:exported="false" />
+        <activity
             android:name="CheckOut.CheckOutActivity"
             android:exported="false" />
         <activity
             android:name="ItemProduct.DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name="ItemProduct.DetailProductActivity"
             android:exported="false" />
         <activity
             android:name="ItemProduct.ListProduct"
@@ -44,9 +46,6 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name="Menu.HomeActivity"
             android:exported="false" />
         <activity
             android:name=".StartActivity"

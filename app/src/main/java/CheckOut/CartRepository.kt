@@ -19,13 +19,4 @@ object CartRepository {
     fun getCartItems(): List<CartItem> = cartItems
 }
 
-data class CartItem(
-    val image: String?,
-    val brand: String?,
-    val name: String?,
-    val size: String?,
-    val status: String?,
-    val oldPrice: String?,
-    val newPrice: String?,
-    val rating: String?
-)
+

@@ -56,7 +56,9 @@ class DetailActivity : AppCompatActivity() {
         }
 
         btnCheckout.setOnClickListener {
+            val cartItem = CartItem(image, brand, name, size, status, oldPrice, newPrice, rating)
             val intent = Intent(this, CheckOutActivity::class.java)
+            intent.putExtra("cartItem", cartItem)
             startActivity(intent)
         }
 
