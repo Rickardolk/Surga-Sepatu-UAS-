@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/dasar"
-        android:paddingTop="60dp">
+        android:paddingTop="@dimen/_50sdp">
 
         <TextView
             android:id="@+id/tvcart"
