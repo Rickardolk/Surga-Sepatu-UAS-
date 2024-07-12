@@ -20,8 +20,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.surgasepatu.R
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
-
 
 class CheckOutActivity : AppCompatActivity() {
 
@@ -79,7 +79,6 @@ class CheckOutActivity : AppCompatActivity() {
                 showConfirmationDialog()
             }
         }
-
     }
 
     private fun showConfirmationDialog() {
@@ -89,6 +88,7 @@ class CheckOutActivity : AppCompatActivity() {
         builder.setPositiveButton("Ya") { dialog, _ ->
             showOrderNotification()
             navigateToOrderActivity()
+            showSnackbar("Pesanan berhasil dibuat")
         }
         builder.setNegativeButton("Tidak", null)
         builder.show()
@@ -96,8 +96,11 @@ class CheckOutActivity : AppCompatActivity() {
     }
 
     private fun navigateToOrderActivity() {
-        val intent = Intent(this, OrderActivity::class.java)
+        val intent = Intent(this, OrderActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+        }
         startActivity(intent)
+        finish()
     }
 
     private fun showOrderNotification() {
@@ -118,7 +121,7 @@ class CheckOutActivity : AppCompatActivity() {
         }
 
         val builder = NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_order)  // Tambahkan ikon notifikasi Anda di sini
+            .setSmallIcon(R.drawable.ic_order)
             .setContentTitle("Surga Sepatu")
             .setContentText("Pesanan berhasil dibuat")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
@@ -149,5 +152,8 @@ class CheckOutActivity : AppCompatActivity() {
             }
         }
     }
-
+    private fun showSnackbar(message: String) {
+        val rootView = window.decorView.rootView
+        Snackbar.make(rootView, message, Snackbar.LENGTH_SHORT).show()
+    }
 }

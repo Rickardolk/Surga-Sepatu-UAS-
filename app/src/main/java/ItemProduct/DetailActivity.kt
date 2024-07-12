@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -52,6 +53,7 @@ class DetailActivity : AppCompatActivity() {
         btnAddToCart.setOnClickListener {
             val cartItem = CartItem(image, brand, name, size, status, oldPrice, newPrice, rating)
             CartRepository.addItem(cartItem)
+            Toast.makeText(this, "Add items to cart", Toast.LENGTH_SHORT).show()
             finish()
         }
 
