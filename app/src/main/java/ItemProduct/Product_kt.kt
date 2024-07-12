@@ -1,6 +1,5 @@
 package ItemProduct
 
-
 data class Product_kt(
     val image: String,
     val brand: String,

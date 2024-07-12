@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.surgasepatu.R
 
 class CartAdapter(
-    private var cartItems: List<CartItem>,
+    var cartItems: List<CartItem>,
     private val onItemClick: (CartItem) -> Unit,
     private val onItemDelete: (CartItem) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {

@@ -44,10 +44,15 @@ class CheckOutActivity : AppCompatActivity() {
         setupRecyclerView()
         setupPlaceOrderButton()
 
-        val cartItem: CartItem? = intent.getParcelableExtra("cartItem")
-        cartItem?.let {
-            CartRepository.addItem(it)
-            cartAdapter.updateCartItems(CartRepository.getCartItems())
+        val directCheckout = intent.getBooleanExtra("directCheckout", false)
+        if (directCheckout) {
+            val cartItem: CartItem? = intent.getParcelableExtra("cartItem")
+            cartItem?.let {
+                cartAdapter.updateCartItems(listOf(it))
+            }
+        } else {
+            val cartItems = CartRepository.getCartItems()
+            cartAdapter.updateCartItems(cartItems)
         }
 
         checkNotificationPermission()
@@ -77,6 +82,8 @@ class CheckOutActivity : AppCompatActivity() {
             if (address.isNotEmpty() && paymentMethod.isNotEmpty()) {
                 // database mysql
                 showConfirmationDialog()
+            } else {
+                showSnackbar("Please fill in all fields")
             }
         }
     }
@@ -96,7 +103,20 @@ class CheckOutActivity : AppCompatActivity() {
     }
 
     private fun navigateToOrderActivity() {
+        val address = addressEditText.text.toString()
+        val selectedPaymentMethodId = paymentMethodRadioGroup.checkedRadioButtonId
+
+        val paymentMethod = when (selectedPaymentMethodId) {
+            R.id.payment_cod -> "COD"
+            R.id.payment_mobile_banking -> "Mobile Banking"
+            R.id.payment_dana -> "Dana"
+            else -> ""
+        }
+
         val intent = Intent(this, OrderActivity::class.java).apply {
+            putExtra("address", address)
+            putExtra("paymentMethod", paymentMethod)
+            putParcelableArrayListExtra("cartItems", ArrayList(cartAdapter.cartItems))
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         }
         startActivity(intent)

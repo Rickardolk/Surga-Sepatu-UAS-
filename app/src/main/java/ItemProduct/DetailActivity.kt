@@ -53,7 +53,7 @@ class DetailActivity : AppCompatActivity() {
         btnAddToCart.setOnClickListener {
             val cartItem = CartItem(image, brand, name, size, status, oldPrice, newPrice, rating)
             CartRepository.addItem(cartItem)
-            Toast.makeText(this, "Add items to cart", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show()
             finish()
         }
 
@@ -61,8 +61,8 @@ class DetailActivity : AppCompatActivity() {
             val cartItem = CartItem(image, brand, name, size, status, oldPrice, newPrice, rating)
             val intent = Intent(this, CheckOutActivity::class.java)
             intent.putExtra("cartItem", cartItem)
+            intent.putExtra("directCheckout", true)
             startActivity(intent)
         }
-
     }
 }

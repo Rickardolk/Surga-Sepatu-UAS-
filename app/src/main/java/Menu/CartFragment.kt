@@ -4,16 +4,16 @@ import CheckOut.CartAdapter
 import CheckOut.CartItem
 import CheckOut.CartRepository
 import ItemProduct.DetailActivity
+import ItemProduct.ListProduct
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.Fragment
-import ItemProduct.ListProduct
-import android.app.AlertDialog
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.surgasepatu.R
@@ -30,6 +30,7 @@ class CartFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
         val btnSeeProduct: Button = view.findViewById(R.id.buttonseeproduct)
+
         val deleteImageView: ImageView = view.findViewById(R.id.hapus)
         emptyCartView = view.findViewById(R.id.empty_cart_container)
         recyclerView = view.findViewById(R.id.cart_recycler_view)
@@ -101,6 +102,4 @@ class CartFragment : Fragment() {
             .setNegativeButton("Tidak", null)
             .show()
     }
-
-
 }
