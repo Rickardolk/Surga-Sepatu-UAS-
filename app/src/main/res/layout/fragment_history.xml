@@ -53,7 +53,6 @@
             android:layout_height="wrap_content"
             android:text="Have you ordered shoes today?"
             android:textColor="@color/white"
-            android:textSize="@dimen/_14ssp"
             android:layout_marginStart="@dimen/_16sdp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvgoodmorning"/>
@@ -87,7 +86,6 @@
                     android:text="Market"
                     android:drawableStart="@drawable/cart_plus_dark"
                     android:drawablePadding="@dimen/_4sdp"
-                    android:textSize="@dimen/_12ssp"
                     android:textColor="@color/textcolor2"/>
 
                 <TextView
@@ -95,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:text="Add Shoes"
                     android:textColor="@color/textcolor2"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"/>
 
             </LinearLayout>
@@ -129,7 +127,6 @@
                     android:text="Buy Now"
                     android:drawableStart="@drawable/keranjang_hitam"
                     android:drawablePadding="@dimen/_4sdp"
-                    android:textSize="@dimen/_12ssp"
                     android:textColor="@color/textcolor2"/>
 
                 <TextView
@@ -137,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:text="Check Shoes"
                     android:textColor="@color/textcolor2"
-                    android:textSize="@dimen/_14ssp"
+                    android:textSize="@dimen/_12ssp"
                     android:textStyle="bold"/>
 
             </LinearLayout>

@@ -1,10 +1,14 @@
 package Menu
 
+import ItemProduct.ListProduct
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.surgasepatu.R
 
 
@@ -29,8 +33,28 @@ class HistoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false)
+
+        val view = inflater.inflate(R.layout.fragment_history, container,false)
+
+        val llMarket = view.findViewById<LinearLayout>(R.id.llmarket)
+        llMarket.setOnClickListener{
+            val intent = Intent(activity, ListProduct::class.java)
+            startActivity(intent)
+        }
+
+        val llBuynow = view.findViewById<LinearLayout>(R.id.llbuynow)
+        llBuynow.setOnClickListener{
+            navigateToCartFragment()
+        }
+        return view
+    }
+
+    private fun navigateToCartFragment() {
+        val cartFragment = CartFragment()
+        val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+        transaction.replace(R.id.fm_history, cartFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     companion object {

@@ -102,7 +102,7 @@
                 android:text="Popular"
                 android:textStyle="bold"
                 android:textColor="@color/textcolor2"
-                android:textSize="@dimen/_16ssp"/>
+                android:textSize="@dimen/_14ssp"/>
 
             <TextView
                 android:layout_width="wrap_content"
