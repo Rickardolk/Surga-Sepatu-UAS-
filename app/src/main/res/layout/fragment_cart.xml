@@ -29,16 +29,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/trash"
+            android:layout_marginTop="@dimen/_4sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvcart"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/empty_cart_container"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@+id/tvcart"
-        android:layout_marginTop="@dimen/_26sdp"
+        android:layout_marginTop="@dimen/_50sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
