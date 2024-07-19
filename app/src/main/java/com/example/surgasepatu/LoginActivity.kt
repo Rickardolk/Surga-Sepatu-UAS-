@@ -14,14 +14,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.FormBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import org.json.JSONObject
-import java.io.IOException
+import com.google.firebase.auth.FirebaseAuth
 
 
 class LoginActivity : AppCompatActivity() {
@@ -29,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etUsername: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnLogin: Button
+    private lateinit var auth: FirebaseAuth
 
     private var isPasswordVisible = false
     @SuppressLint("ClickableViewAccessibility")
@@ -40,6 +34,7 @@ class LoginActivity : AppCompatActivity() {
         etUsername = findViewById(R.id.etusername)
         etPassword = findViewById(R.id.etpassword)
         btnLogin = findViewById(R.id.buttonlogin2)
+        auth = FirebaseAuth.getInstance()
 
         //buat function untuk login
         btnLogin.setOnClickListener {
@@ -47,15 +42,7 @@ class LoginActivity : AppCompatActivity() {
             val password = etPassword.text.toString().trim()
 
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                if (username == "amikom" && password == "amikomselalu") {
-
-                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    loginUser(username, password)
-                    loginUser(username, password)
-                }
+                loginUser(username, password)
             } else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
@@ -78,7 +65,7 @@ class LoginActivity : AppCompatActivity() {
                         //munculkan
                         passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
                         passwordEditText.setCompoundDrawablesWithIntrinsicBounds(
-                            ContextCompat.getDrawable(this, R.drawable.ic_password),
+                            ContextCompat.getDrawable(this, R.drawable.ic_lock),
                             null,
                             ContextCompat.getDrawable(this, R.drawable.ic_hint),
                             null
@@ -87,7 +74,7 @@ class LoginActivity : AppCompatActivity() {
                         //hilangkan
                         passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
                         passwordEditText.setCompoundDrawablesWithIntrinsicBounds(
-                            ContextCompat.getDrawable(this, R.drawable.ic_password),
+                            ContextCompat.getDrawable(this, R.drawable.ic_lock),
                             null,
                             ContextCompat.getDrawable(this, R.drawable.ic_hint),
                             null
@@ -102,42 +89,16 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun loginUser(username: String, password: String) {
-        val client = OkHttpClient()
-        val requestBody = FormBody.Builder()
-            .add("username", username)
-            .add("password", password)
-            .build()
-
-        val request = Request.Builder()
-            .url("http://192.168.1.6/user_registration/login.php")
-            .post(requestBody)
-            .build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                runOnUiThread {
-                    Toast.makeText(this@LoginActivity, "Failed to connect to server", Toast.LENGTH_SHORT).show()
+    private fun loginUser(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@LoginActivity, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
-
-            override fun onResponse(call: Call, response: Response) {
-                val responseData = response.body?.string()
-                val jsonResponse = JSONObject(responseData)
-                val status = jsonResponse.getString("status")
-                val message = jsonResponse.getString("message")
-
-                runOnUiThread {
-                    Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
-                    if (status == "success") {
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
-            }
-        })
-
-
     }
 }

@@ -13,14 +13,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.FormBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
-import org.json.JSONObject
-import java.io.IOException
+import com.google.firebase.auth.FirebaseAuth
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -30,6 +23,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnRegister: Button
+    private lateinit var auth: FirebaseAuth
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +35,7 @@ class RegisterActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.etemailgerister)
         etPassword = findViewById(R.id.etpasswordregister)
         btnRegister = findViewById(R.id.buttonregister2)
+        auth = FirebaseAuth.getInstance()
 
         val tvloginRegister = findViewById<TextView>(R.id.tvloginregister)
         tvloginRegister.setOnClickListener{
@@ -54,7 +49,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = etPassword.text.toString().trim()
 
             if (username.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-                registerUser(username, email, password)
+                registerUser(email, password)
             } else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
@@ -71,7 +66,7 @@ class RegisterActivity : AppCompatActivity() {
                         //munculkan
                         passwordEditText.transformationMethod = HideReturnsTransformationMethod.getInstance()
                         passwordEditText.setCompoundDrawablesWithIntrinsicBounds(
-                            ContextCompat.getDrawable(this, R.drawable.ic_password),
+                            ContextCompat.getDrawable(this, R.drawable.ic_lock),
                             null,
                             ContextCompat.getDrawable(this, R.drawable.ic_hint),
                             null
@@ -80,7 +75,7 @@ class RegisterActivity : AppCompatActivity() {
                         //hilangkan
                         passwordEditText.transformationMethod = PasswordTransformationMethod.getInstance()
                         passwordEditText.setCompoundDrawablesWithIntrinsicBounds(
-                            ContextCompat.getDrawable(this, R.drawable.ic_password),
+                            ContextCompat.getDrawable(this, R.drawable.ic_lock),
                             null,
                             ContextCompat.getDrawable(this, R.drawable.ic_hint),
                             null
@@ -95,43 +90,16 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun registerUser(username: String, email: String, password: String) {
-        val client = OkHttpClient()
-        val requestBody = FormBody.Builder()
-            .add("username", username)
-            .add("email", email)
-            .add("password", password)
-            .build()
-
-        val request = Request.Builder()
-            .url("http://192.168.1.6/user_registration/register.php")
-            .post(requestBody)
-            .build()
-
-        client.newCall(request).enqueue(object : Callback {
-            override fun onFailure(call: Call, e: IOException) {
-                e.printStackTrace() //loging error
-                runOnUiThread {
-                    Toast.makeText(this@RegisterActivity, "Failed to connect to server", Toast.LENGTH_SHORT).show()
+    private fun registerUser(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@RegisterActivity, "Registration failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
-
-            override fun onResponse(call: Call, response: Response) {
-                val responseData = response.body?.string()
-                val jsonResponse = JSONObject(responseData)
-                val status = jsonResponse.getString("status")
-                val message = jsonResponse.getString("message")
-
-                runOnUiThread {
-                    Toast.makeText(this@RegisterActivity, message, Toast.LENGTH_SHORT).show()
-                    if (status == "success") {
-                        val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                }
-            }
-        })
     }
-
 }

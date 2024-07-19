@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "652015974997",
+    "project_id": "surga-sepatu-5a54f",
+    "storage_bucket": "surga-sepatu-5a54f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652015974997:android:795d17017a700ea11cf2dc",
+        "android_client_info": {
+          "package_name": "com.example.surgasepatu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEMiwvQr7HZ6wy4xETfCr53viIEZZw0c0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
