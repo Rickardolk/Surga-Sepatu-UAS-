@@ -67,6 +67,9 @@ dependencies {
     implementation ("com.afollestad.material-dialogs:core:3.3.0")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation ("androidx.core:core-ktx:1.6.0")
+    implementation ("com.google.firebase:firebase-database:21.0.0")
+    implementation ("com.google.firebase:firebase-core:21.1.1")
+
 
 }
 
