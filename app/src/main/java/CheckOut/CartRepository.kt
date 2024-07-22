@@ -1,5 +1,7 @@
 package CheckOut
 
+import Data.CartItem
+
 
 object CartRepository {
     private val cartItems = mutableListOf<CartItem>()

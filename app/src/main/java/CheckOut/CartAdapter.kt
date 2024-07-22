@@ -1,5 +1,6 @@
 package CheckOut
 
+import Data.CartItem
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

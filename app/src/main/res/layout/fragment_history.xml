@@ -139,14 +139,27 @@
 
             </LinearLayout>
 
+
+            <Button
+                android:id="@+id/delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="Hapus"
+                android:visibility="visible"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llbuynow"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/order_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/_300sdp"
                 android:layout_marginStart="@dimen/_16sdp"
                 android:layout_marginEnd="@dimen/_16sdp"
-                app:layout_constraintTop_toBottomOf="@+id/llmarket"
-                android:layout_marginTop="@dimen/_80sdp"
+                app:layout_constraintTop_toBottomOf="@+id/delete_button"
+                android:layout_marginTop="@dimen/_16sdp"
                 app:layout_constraintStart_toStartOf="parent"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

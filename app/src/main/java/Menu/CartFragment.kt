@@ -1,8 +1,8 @@
 package Menu
 
 import CheckOut.CartAdapter
-import CheckOut.CartItem
 import CheckOut.CartRepository
+import Data.CartItem
 import ItemProduct.DetailActivity
 import ItemProduct.ListProductActivity
 import android.app.AlertDialog

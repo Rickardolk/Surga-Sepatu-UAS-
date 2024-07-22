@@ -9,6 +9,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -29,6 +31,7 @@ class HistoryFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var orderAdapter: OrderAdapter
     private lateinit var orderList: MutableList<Order>
+    private lateinit var deleteButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +44,11 @@ class HistoryFragment : Fragment() {
         orderList = mutableListOf()
         orderAdapter = OrderAdapter(orderList)
         recyclerView.adapter = orderAdapter
+
+        deleteButton = view.findViewById(R.id.delete_button)
+        deleteButton.setOnClickListener{
+            deleteSelectedOrders()
+        }
 
         val llMarket = view.findViewById<LinearLayout>(R.id.llmarket)
         llMarket.setOnClickListener {
@@ -66,7 +74,7 @@ class HistoryFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 orderList.clear()
                 for (orderSnapshot in snapshot.children) {
-                    val order = orderSnapshot.getValue(Order::class.java)
+                    val order = orderSnapshot.getValue(Order::class.java)?.copy(orderId = orderSnapshot.key ?: "")
                     if (order != null) {
                         orderList.add(order)
                     } else {
@@ -82,8 +90,22 @@ class HistoryFragment : Fragment() {
         })
     }
 
-    class OrderAdapter(private val orderList: List<Order>) :
+    private fun deleteSelectedOrders() {
+        val selectedOrders = orderAdapter.getSelectedOrders()
+        val database = FirebaseDatabase.getInstance()
+        val ordersRef = database.getReference("orders")
+
+        selectedOrders.forEach { order ->
+            ordersRef.child(order.orderId).removeValue()
+        }
+
+        orderAdapter.removeSelectedOrders()
+    }
+
+    inner class OrderAdapter(private val orderList: List<Order>) :
         RecyclerView.Adapter<OrderAdapter.OrderViewHolder>() {
+
+        private val selectedOrders = mutableSetOf<Order>()
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
             val itemView = LayoutInflater.from(parent.context)
@@ -93,22 +115,62 @@ class HistoryFragment : Fragment() {
 
         override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
             val currentOrder = orderList[position]
-            holder.addressTextView.text = currentOrder.address
-            holder.paymentMethodTextView.text = currentOrder.paymentMethod
-            holder.orderTimeTextView.text =
-                SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Date(currentOrder.orderTime))
-            holder.itemsTextView.text = currentOrder.items.joinToString { it.name.toString() }
+            holder.bind(currentOrder, selectedOrders.contains(currentOrder))
+
         }
 
         override fun getItemCount() = orderList.size
 
-        class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            val addressTextView: TextView = itemView.findViewById(R.id.order_address)
-            val paymentMethodTextView: TextView = itemView.findViewById(R.id.order_payment_method)
-            val orderTimeTextView: TextView = itemView.findViewById(R.id.order_time)
-            val itemsTextView: TextView = itemView.findViewById(R.id.order_items)
+        fun getSelectedOrders(): Set<Order> {
+            return selectedOrders
+        }
+
+        fun removeSelectedOrders() {
+            val ordersToRemove = selectedOrders.toList()
+            ordersToRemove.forEach { order ->
+                val position = orderList.indexOf(order)
+                if (position != -1) {
+                    (orderList as MutableList).removeAt(position)
+                    notifyItemRemoved(position)
+                }
+            }
+            selectedOrders.clear()
+        }
+
+        inner class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            private val addressTextView: TextView = itemView.findViewById(R.id.order_address)
+            private val paymentMethodTextView: TextView = itemView.findViewById(R.id.order_payment_method)
+            private val orderTimeTextView: TextView = itemView.findViewById(R.id.order_time)
+            private val itemsTextView: TextView = itemView.findViewById(R.id.order_items)
+            private val checkBox: CheckBox = itemView.findViewById(R.id.order_checkbox)
+
+            fun bind(order: Order, isSelected: Boolean) {
+                addressTextView.text = order.address
+                paymentMethodTextView.text = order.paymentMethod
+                orderTimeTextView.text = SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(Date(order.orderTime))
+                itemsTextView.text = order.items.joinToString { it.name.toString() }
+                checkBox.isChecked = isSelected
+
+                itemView.setOnClickListener {
+                    checkBox.isChecked = !checkBox.isChecked
+                    if (checkBox.isChecked) {
+                        selectedOrders.add(order)
+                    } else {
+                        selectedOrders.remove(order)
+                    }
+                }
+
+                checkBox.setOnCheckedChangeListener { _, isChecked ->
+                    if (isChecked) {
+                        selectedOrders.add(order)
+                    } else {
+                        selectedOrders.remove(order)
+                    }
+                }
+            }
         }
     }
+
     private fun navigateToCartFragment() {
         val cartFragment = CartFragment()
         val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
