@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
-
         bottomNavigationView = findViewById(R.id.button_navigation)
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -77,7 +76,5 @@ class MainActivity : AppCompatActivity() {
         } else {
             super.onBackPressed()
         }
-
     }
-
 }
