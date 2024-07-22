@@ -4,7 +4,7 @@ import CheckOut.CartAdapter
 import CheckOut.CartItem
 import CheckOut.CartRepository
 import ItemProduct.DetailActivity
-import ItemProduct.ListProduct
+import ItemProduct.ListProductActivity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
@@ -36,7 +36,7 @@ class CartFragment : Fragment() {
         recyclerView = view.findViewById(R.id.cart_recycler_view)
 
         btnSeeProduct.setOnClickListener {
-            val intent = Intent(activity, ListProduct::class.java)
+            val intent = Intent(activity, ListProductActivity::class.java)
             startActivity(intent)
         }
 

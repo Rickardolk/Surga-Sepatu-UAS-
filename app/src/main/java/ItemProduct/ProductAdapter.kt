@@ -1,5 +1,6 @@
 package ItemProduct
 
+import Data.Product
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.surgasepatu.R
 
-class ProductAdapter (private val productList: List<Product_kt>) :
+class ProductAdapter (private val productList: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -26,11 +27,11 @@ class ProductAdapter (private val productList: List<Product_kt>) :
             .into(holder.imageView)
         holder.brandTextView.text = currentProduct.brand
         holder.nameTextView.text = currentProduct.name
-        holder.sizeTextView.text = currentProduct.size
+        holder.sizeTextView.text = "Size ${currentProduct.size}"
         holder.statusTextView.text = currentProduct.status
         holder.oldPriceTextView.text = currentProduct.oldPrice
         holder.newPriceTextView.text = currentProduct.newPrice
-        holder.ratingTextView.text = currentProduct.rating
+        holder.ratingTextView.text = currentProduct.rating.toString()
 
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context

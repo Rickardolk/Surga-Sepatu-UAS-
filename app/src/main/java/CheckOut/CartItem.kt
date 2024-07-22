@@ -13,6 +13,8 @@ data class CartItem(
     val newPrice: String?,
     val rating: String?
 ): Parcelable {
+
+    constructor() : this(null, null, null, null, null, null, null, null)
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),

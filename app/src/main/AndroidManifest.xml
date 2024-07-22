@@ -28,7 +28,7 @@
             android:name="ItemProduct.DetailActivity"
             android:exported="false" />
         <activity
-            android:name="ItemProduct.ListProduct"
+            android:name="ItemProduct.ListProductActivity"
             android:exported="false" />
         <activity
             android:name=".ItemlistActivity"

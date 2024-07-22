@@ -35,30 +35,30 @@ class DetailActivity : AppCompatActivity() {
         val image = intent.getStringExtra("image")
         val brand = intent.getStringExtra("brand")
         val name = intent.getStringExtra("name")
-        val size = intent.getStringExtra("size")
+        val size = intent.getIntExtra("size", 0)
         val status = intent.getStringExtra("status")
         val oldPrice = intent.getStringExtra("oldPrice")
         val newPrice = intent.getStringExtra("newPrice")
-        val rating = intent.getStringExtra("rating")
+        val rating = intent.getFloatExtra("rating", 0.0f)
 
         Glide.with(this).load(image).into(imageView)
         brandTextView.text = brand
         nameTextView.text = name
-        sizeTextView.text = size
+        sizeTextView.text = "Size $size"
         statusTextView.text = status
         oldPriceTextView.text = oldPrice
         newPriceTextView.text = newPrice
-        ratingTextView.text = rating
+        ratingTextView.text = rating.toString()
 
         btnAddToCart.setOnClickListener {
-            val cartItem = CartItem(image, brand, name, size, status, oldPrice, newPrice, rating)
+            val cartItem = CartItem(image, brand, name, "Size $size", status, oldPrice, newPrice, rating.toString())
             CartRepository.addItem(cartItem)
             Toast.makeText(this, "Item added to cart", Toast.LENGTH_SHORT).show()
             finish()
         }
 
         btnCheckout.setOnClickListener {
-            val cartItem = CartItem(image, brand, name, size, status, oldPrice, newPrice, rating)
+            val cartItem = CartItem(image, brand, name, "Size $size", status, oldPrice, newPrice, rating.toString())
             val intent = Intent(this, CheckOutActivity::class.java)
             intent.putExtra("cartItem", cartItem)
             intent.putExtra("directCheckout", true)

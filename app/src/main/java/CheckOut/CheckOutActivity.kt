@@ -1,5 +1,6 @@
 package CheckOut
 
+import Data.Order
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -22,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.surgasepatu.R
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.database.FirebaseDatabase
 
 class CheckOutActivity : AppCompatActivity() {
 
@@ -112,6 +114,14 @@ class CheckOutActivity : AppCompatActivity() {
             R.id.payment_dana -> "Dana"
             else -> ""
         }
+
+        val cartItem = cartAdapter.cartItems
+        val orderId = System.currentTimeMillis().toString()
+        //simpan data di firebase
+        val order = Order(orderId, address, paymentMethod, cartItem, System.currentTimeMillis())
+        val database = FirebaseDatabase.getInstance()
+        val orderRef = database.getReference("orders").child(orderId)
+        orderRef.setValue(order)
 
         val intent = Intent(this, OrderActivity::class.java).apply {
             putExtra("address", address)
