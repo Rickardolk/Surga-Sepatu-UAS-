@@ -63,14 +63,12 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.1")
     implementation ("org.json:json:20210307")
-    implementation ("com.google.android.material:material:1.4.0")
+    implementation ("com.google.android.material:material:1.7.0")
     implementation ("com.afollestad.material-dialogs:core:3.3.0")
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
     implementation ("androidx.core:core-ktx:1.6.0")
     implementation ("com.google.firebase:firebase-database:21.0.0")
     implementation ("com.google.firebase:firebase-core:21.1.1")
-
-
 }
 
 apply(plugin = "com.google.gms.google-services")

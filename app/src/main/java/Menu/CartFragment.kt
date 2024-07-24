@@ -1,10 +1,9 @@
 package Menu
 
-import CheckOut.CartAdapter
-import CheckOut.CartRepository
 import Data.CartItem
-import ItemProduct.DetailActivity
-import ItemProduct.ListProductActivity
+import Data.CartAdapter
+import Activity.DetailActivity
+import Activity.ListProductActivity
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
@@ -102,4 +101,19 @@ class CartFragment : Fragment() {
             .setNegativeButton("Tidak", null)
             .show()
     }
+}
+//repository
+object CartRepository {
+    private val cartItems = mutableListOf<CartItem>()
+
+    fun addItem(item: CartItem) {
+        cartItems.add(item)
+    }
+    fun removeItem(item: CartItem) {
+        cartItems.remove(item)
+    }
+    fun clearCart() {
+        cartItems.clear()
+    }
+    fun getCartItems(): List<CartItem> = cartItems
 }

@@ -1,7 +1,9 @@
-package CheckOut
+package Activity
 
 import Data.CartItem
 import Data.Order
+import Data.CartAdapter
+import Menu.CartRepository
 import android.Manifest
 import android.app.NotificationChannel
 import android.app.NotificationManager
