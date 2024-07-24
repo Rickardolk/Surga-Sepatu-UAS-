@@ -1,8 +1,7 @@
 package Menu
 
 import Data.Order
-import ItemProduct.ListProductActivity
-import ItemProduct.ProductAdapter
+import Activity.ListProductActivity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +21,6 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import okhttp3.internal.notify
 import java.text.SimpleDateFormat
 import java.util.Date
 

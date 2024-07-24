@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="CheckOut.CheckOutActivity">
+    tools:context="Activity.CheckOutActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -71,19 +71,25 @@
                     android:id="@+id/payment_cod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cash on Delivery (COD)"/>
+                    android:text="Cash on Delivery (COD)"
+                    android:drawableStart="@drawable/cod"
+                    android:drawablePadding="@dimen/_4sdp"/>
 
                 <RadioButton
                     android:id="@+id/payment_mobile_banking"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mobile Banking"/>
+                    android:text="Mobile Banking"
+                    android:drawableStart="@drawable/mobile_banking"
+                    android:drawablePadding="@dimen/_4sdp"/>
 
                 <RadioButton
                     android:id="@+id/payment_dana"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dana"/>
+                    android:text="Dana"
+                    android:drawableStart="@drawable/dana"
+                    android:drawablePadding="@dimen/_2sdp"/>
             </RadioGroup>
 
         </LinearLayout>

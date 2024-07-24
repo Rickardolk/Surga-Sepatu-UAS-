@@ -75,9 +75,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:text="Edit Profile"
                         android:textColor="@color/textcolor2"
                         android:textSize="@dimen/_14ssp"
@@ -96,36 +96,13 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp">
-
-                    <TextView
-                        android:id="@+id/tv_addressBook"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Address Book"
-                        android:textColor="@color/textcolor2"
-                        android:textSize="@dimen/_14ssp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/arrow_right"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp">
 
                     <TextView
-                        android:id="@+id/tv_messages"
+                        android:id="@+id/tv_language"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Messages"
+                        android:text="Language"
                         android:textColor="@color/textcolor2"
                         android:textSize="@dimen/_14ssp"
                         app:layout_constraintTop_toTopOf="parent"
@@ -134,8 +111,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Receive exclusive offers and personal updates"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_messages"
+                        android:text="English"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_language"
                         app:layout_constraintStart_toStartOf="parent"/>
 
                     <ImageView
@@ -180,37 +157,6 @@
                         android:layout_marginStart="@dimen/_4sdp"
                         app:layout_constraintTop_toBottomOf="@+id/tv_country"
                         app:layout_constraintStart_toEndOf="@+id/iv_bendera"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/arrow_right"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_12sdp">
-
-                    <TextView
-                        android:id="@+id/tv_language"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Language"
-                        android:textColor="@color/textcolor2"
-                        android:textSize="@dimen/_14ssp"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="English"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_language"
-                        app:layout_constraintStart_toStartOf="parent"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -322,35 +268,24 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp">
 
                     <TextView
-                        android:id="@+id/tv_feedback"
+                        android:id="@+id/tv_logOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Feedback"
+                        android:text="Logout"
                         android:textColor="@color/textcolor2"
                         android:textSize="@dimen/_14ssp"
+                        android:drawableStart="@drawable/logout"
+                        android:drawablePadding="@dimen/_4sdp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"/>
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/arrow_right"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </LinearLayout>
-
-
-
         </ScrollView>
-
     </RelativeLayout>
-
-
 </FrameLayout>

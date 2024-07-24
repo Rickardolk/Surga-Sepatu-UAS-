@@ -28,7 +28,6 @@ class FirstActivity : AppCompatActivity() {
 
         }
 
-
         val textView: TextView = findViewById(R.id.textView)
         val htmlText = "<div style='text-align:center;'>Find Your Dream<br>Shoes With Us!</div>"
         textView.text = Html.fromHtml(htmlText)
@@ -50,11 +49,10 @@ class FirstActivity : AppCompatActivity() {
             }
         }
 
-        // Delay transition to HomeActivity
+        //Delay
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, StartActivity::class.java))
             finish()
         }, splashScreenDelay)
-
     }
 }

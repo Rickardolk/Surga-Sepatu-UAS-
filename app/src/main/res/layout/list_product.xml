@@ -40,12 +40,12 @@
                 android:iconifiedByDefault="false"
                 android:layout_weight="1"
                 android:queryHint="Search"
-                android:layout_marginEnd="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_14sdp"
                 android:background="@drawable/search_background"/>
 
             <ImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_26sdp"
                 android:src="@drawable/ic_filter"
                 android:layout_marginEnd="@dimen/_16sdp"
                 />
@@ -118,6 +118,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hz"
         tools:listitem="@layout/item_product" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

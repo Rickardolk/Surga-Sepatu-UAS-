@@ -1,7 +1,7 @@
-package ItemProduct
+package Activity
 
 import Data.Product
-import android.annotation.SuppressLint
+import Data.ProductAdapter
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -52,6 +52,5 @@ class ListProductActivity : AppCompatActivity() {
                 Log.e("ListProductActivity", "Failed to load products", error.toException())
             }
         })
-
     }
 }

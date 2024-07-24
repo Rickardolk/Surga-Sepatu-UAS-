@@ -1,8 +1,7 @@
-package ItemProduct
+package Activity
 
-import CheckOut.CartRepository
-import CheckOut.CheckOutActivity
 import Data.CartItem
+import Menu.CartRepository
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button

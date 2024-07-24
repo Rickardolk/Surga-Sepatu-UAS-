@@ -5,7 +5,8 @@
     tools:context="Menu.HomeFragment"
     android:id="@+id/fm_home">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main"
@@ -14,7 +15,6 @@
         android:background="@color/dasar"
         android:paddingTop="60dp"
         tools:context="Menu.HomeActivity">
-
 
         <RelativeLayout
             android:id="@+id/rlhiyou"
@@ -75,8 +75,7 @@
                 android:layout_weight="1"
                 android:layout_marginEnd="16dp"
                 android:background="@drawable/search_background"
-                android:queryHint="Search"
-                />
+                android:queryHint="Search" />
 
             <ImageView
                 android:layout_width="@dimen/_30sdp"
@@ -182,7 +181,6 @@
 
         </HorizontalScrollView>
 
-
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -199,7 +197,5 @@
                 android:orientation="horizontal"
                 />
         </HorizontalScrollView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </FrameLayout>
