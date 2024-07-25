@@ -5,11 +5,16 @@ import Menu.HistoryFragment
 import Menu.HomeFragment
 import Menu.ProfileFragment
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.messaging.FirebaseMessaging
+import retrofit2.http.Tag
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,6 +61,7 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.selectedItemId = R.id.bn_Home
         }
     }
+
 
     private fun loadFragment(fragment: Fragment, tag: String?) {
         val transaction = supportFragmentManager.beginTransaction()

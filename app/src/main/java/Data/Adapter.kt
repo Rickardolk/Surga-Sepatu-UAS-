@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.surgasepatu.R
 
 //product adapter
-class ProductAdapter (private val productList: List<Product>) :
+class ProductAdapter (private var productList: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -51,6 +51,11 @@ class ProductAdapter (private val productList: List<Product>) :
     }
 
     override fun getItemCount() = productList.size
+
+    fun updateList(newList: List<Product>) {
+        productList = newList
+        notifyDataSetChanged()
+    }
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.product_image)

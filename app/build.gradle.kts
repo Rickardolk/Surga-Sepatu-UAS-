@@ -69,6 +69,7 @@ dependencies {
     implementation ("androidx.core:core-ktx:1.6.0")
     implementation ("com.google.firebase:firebase-database:21.0.0")
     implementation ("com.google.firebase:firebase-core:21.1.1")
+    implementation ("com.google.firebase:firebase-messaging:24.0.0")
 }
 
 apply(plugin = "com.google.gms.google-services")

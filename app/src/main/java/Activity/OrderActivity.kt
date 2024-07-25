@@ -51,8 +51,9 @@ class OrderActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("navigateTo", "cart")
+        val intent = Intent(this, MainActivity::class.java).apply {
+            putExtra("navigateTo", "cart")
+        }
         startActivity(intent)
         finish()
     }

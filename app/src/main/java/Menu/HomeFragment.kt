@@ -1,10 +1,13 @@
 package Menu
 
 import Activity.DetailActivity
+import Activity.ListProductActivity
 import Data.Product
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +17,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.SearchView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.surgasepatu.R
@@ -28,6 +32,7 @@ import com.google.firebase.database.ValueEventListener
 class HomeFragment : Fragment() {
 
     private lateinit var database: DatabaseReference
+    private lateinit var linearLayout: LinearLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +48,8 @@ class HomeFragment : Fragment() {
         val btnRunning = view.findViewById<Button>(R.id.btn_running)
         val btnBoots = view.findViewById<Button>(R.id.btn_boots)
         val buttons = listOf(btnFormal, btnSneakers, btnLoafers, btnRunning, btnBoots)
+
+        linearLayout = view.findViewById(R.id.llsearch)
 
         btnFormal.setOnClickListener {
             displayItems("formal", view)
@@ -67,6 +74,11 @@ class HomeFragment : Fragment() {
 
         displayItems("formal", view)
         selectButton(btnFormal, buttons)
+
+        linearLayout.setOnClickListener {
+            val intent = Intent(context, ListProductActivity::class.java)
+            startActivity(intent)
+        }
 
         return view
     }
@@ -109,8 +121,8 @@ class HomeFragment : Fragment() {
 
         Glide.with(this)
             .load(product.image)
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_background)
+            .placeholder(R.color.birumuda)
+            .error(R.color.birumuda)
             .into(imageShoe)
 
         view.setOnClickListener {

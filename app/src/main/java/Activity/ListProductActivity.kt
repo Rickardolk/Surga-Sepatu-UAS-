@@ -4,6 +4,7 @@ import Data.Product
 import Data.ProductAdapter
 import android.os.Bundle
 import android.util.Log
+import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ class ListProductActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var productAdapter: ProductAdapter
     private val productList = mutableListOf<Product>()
+    private lateinit var searchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +34,19 @@ class ListProductActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         productAdapter = ProductAdapter(productList)
         recyclerView.adapter = productAdapter
+
+        searchView = findViewById(R.id.searchview_listproduct)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                query?.let { searchProducts(it) }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let { searchProducts(it) }
+                return false
+            }
+        })
 
         database = FirebaseDatabase.getInstance().getReference("productList")
         ambilProductsDariFirebase()
@@ -52,5 +67,11 @@ class ListProductActivity : AppCompatActivity() {
                 Log.e("ListProductActivity", "Failed to load products", error.toException())
             }
         })
+    }
+    private fun searchProducts(query: String) {
+        val filteredList = productList.filter {
+            it.name.contains(query, ignoreCase = true)
+        }
+        productAdapter.updateList(filteredList)
     }
 }

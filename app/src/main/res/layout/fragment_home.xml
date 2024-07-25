@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="Menu.HomeFragment"
+    android:focusableInTouchMode="true"
     android:id="@+id/fm_home">
 
     <androidx.constraintlayout.widget.ConstraintLayout
